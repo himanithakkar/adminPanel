@@ -1,8 +1,8 @@
 <?php 
-include "admin_header.php";
-include "sidebar.php";
+include "header.php";
+include "sidenav.php";
 if(isset($_SESSION['user']) && count($_SESSION['user'])>0){
-	$uid=$_SESSION['user']['usermaster_id'];
+	$uid=$_SESSION['user']['admin_user_id'];
 	}
 	
 if(isset($_REQUEST['msg']))
@@ -32,12 +32,12 @@ if(isset($_REQUEST['msg']))
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            <img src="../images/final_logo1.jpg" title="Try* & Buy Logo" alt="Try* & Buy logo" >
+                            <img src="../vraj1.png" title="logo" alt="logo" height="70">
                             <small>Dashboard Home</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-home"></i>  <a href="index.html">Dashboard</a>
+                                <i class="fa fa-home"></i>  <a href="home.php">Dashboard</a>
                             </li>
                             <li class="active">
 							Change Password

@@ -20,7 +20,7 @@ $conn = mysql_connect('166.62.10.30', 'db_vraj', '3112@vraj');
 	if (!$conn) {
 		die('Could not connect: ' . mysql_error());
 	}
-	mysql_select_db("vraj");
+	mysql_select_db("vraj_db");
 
 //upload photo function
 	function productImageUpload($source,$destination){

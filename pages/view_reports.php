@@ -1,6 +1,6 @@
 <?php 
-include "admin_header.php";
-include "sidebar.php";
+include "header.php";
+include "sidenav.php";
 if(isset($_REQUEST['order_report']) && $_REQUEST['order_report']=="Generate Report")//condition of order reports
 {
 	$oquery = "select * from order_master where total>0";
@@ -102,12 +102,12 @@ if(isset($_REQUEST['rating_report']) && $_REQUEST['rating_report']=="Generate Re
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            <img src="../images/final_logo1.jpg" title="Try* & Buy Logo" alt="Try* & Buy logo" >
+                             <img src="../vraj1.png" title="logo" alt="logo" height="70">
                             <small>View Reports</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-home"></i>  <a href="index.html">Dashboard</a>
+                                <i class="fa fa-home"></i>  <a href="home.php">Dashboard</a>
                             </li>
                             <li class="active">
 							<i class="fa fa-list"></i> View Reports

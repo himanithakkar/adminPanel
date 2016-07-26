@@ -2,7 +2,29 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="home.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                         <a href="javascript:;" data-toggle="collapse" data-target="#cateogory"><i class="fa fa-fw fa-arrows-v"></i> Manage Category</a>
+                        <ul id="cateogory" class="collapse">
+                            <li>
+                                 <a href="add_category.php"><i class="fa fa-fw fa-edit"></i>Add New Category</a>
+                            </li>
+                            <li>
+                                <a href="display_category.php"><i class="fa fa-fw fa-table"></i>Display Category</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                         <a href="javascript:;" data-toggle="collapse" data-target="#products"><i class="fa fa-fw fa-arrows-v"></i> Manage Products</a>
+                        <ul id="products" class="collapse">
+                            <li>
+                                 <a href="add_product.php"><i class="fa fa-fw fa-edit"></i></i>Add New Product</a>
+                            </li>
+                            <li>
+                                <a href="display_products.php"><i class="fa fa-fw fa-table"></i>Display Products</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="manage_order.php"><i class="fa fa-fw fa-shopping-cart"></i> Manage Orders</a>

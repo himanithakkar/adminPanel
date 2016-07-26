@@ -1,11 +1,11 @@
 <?php
-	include "dbcon.php";
+	include "db_conn.php";
 	$uid=$_REQUEST['id'];
 	if($status == 1)
 		$status = 0;
 	
 	
-	$query = "update user_master set status='$status' where usermaster_id=$uid";
+	$query = "update user set user_status='$status' where user_id=$uid";
 	
 	$result = mysql_query($query,$conn);
 	

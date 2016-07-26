@@ -1,5 +1,5 @@
 <?php
-	include "db_conn.php";
+	include "dbcon.php";
 	$uid=$_REQUEST['id'];
 	if($status == 0)
 		$status = 1;

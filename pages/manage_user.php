@@ -2,7 +2,7 @@
 include "header.php";
 include "sidenav.php";
 
-$u_query = "select * from user_master";
+$u_query = "select * from user";
 $u_result = mysql_query($u_query,$conn);
 
 if(isset($_REQUEST['msg'])){
@@ -46,12 +46,12 @@ if(isset($_REQUEST['msg'])){
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            <!--<img src="../images/final_logo1.jpg" title="Try* & Buy Logo" alt="Try* & Buy logo" >-->
+                             <img src="../vraj1.png" title="logo" alt="logo" height="70">
                             <small>Manage User</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="home.php">Dashboard</a>
                             </li>
                             <li class="active">
 							<i class="fa fa-user"></i> Manage User
@@ -79,7 +79,29 @@ if(isset($_REQUEST['msg'])){
 						</tr>
 						<thead>
 						<tbody>
-						<?php while($row = mysql_fetch_array($u_result)) {
+							<tr>
+								<td>Himani Thakakar</td>
+								<td>HImani@gmail.com</td>
+								<td>Female</td>
+								<td>96975974894</td>
+								<td>16 XYZ apartment, near ABC area, India</td>
+								<td></td>
+								<td>Deactivate</a>
+								</td>
+							</tr>
+							<tr>
+								<td>Akash mehta</td>
+								<td>akash@gmail.com</td>
+								<td>Male</td>
+								<td>96975974894</td>
+								<td>16 GHN apartment, near ABC area, India</td>
+								<td></td>
+								<td>Active</td>
+								</td>
+							</tr>
+
+
+						<?php /* while($row = mysql_fetch_array($u_result)) {
 									//print "<pre>";
 									//print_r($row);die;
 									$id=$row['usermaster_id'];
@@ -119,7 +141,7 @@ if(isset($_REQUEST['msg'])){
 						</tr>
 						<?php 		}
 								}
-							} 
+							} */
 						?>	
 				
 						</tbody>

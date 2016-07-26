@@ -1,18 +1,11 @@
 <?php 
 include "header.php";
 include "sidenav.php";
-/*
+
 if(isset($_SESSION['user']) && count($_SESSION['user'])>0){
-//	$user_id = $_SESSION['user']['usermaster_id'];
-	$first_name = $_SESSION['user']['f_name'];
-	$last_name = $_SESSION['user']['l_name'];
-	$name = $first_name." ".$last_name;
-	$email = $_SESSION['user']['email'];
-//	$country = $_SESSION['user']['country'];
-//	$state = $_SESSION['user']['state'];
-//	$city = $_SESSION['user']['city'];
-	$address = $_SESSION['user']['address'];
-	$contact = $_SESSION['user']['contactno'];
+	$user_id = $_SESSION['user']['admin_user_id'];
+	$name = $_SESSION['user']['admin_name'];
+	$email = $_SESSION['user']['admin_email'];
 	$user_image = $_SESSION['user']['user_image'];
 }*/
 ?>
@@ -22,12 +15,12 @@ if(isset($_SESSION['user']) && count($_SESSION['user'])>0){
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            <!--<img src="" title="" alt="" > -->
+                            <img src="../vraj1.png" title="logo" alt="logo" height="70">
                             <small>Profile</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-home"></i>  <a href="index.php">Dashboard</a>
+                                <i class="fa fa-home"></i>  <a href="home.php">Dashboard</a>
                             </li>
                             <li class="active">
 								Profile
@@ -45,10 +38,7 @@ if(isset($_SESSION['user']) && count($_SESSION['user'])>0){
 								</td>
 								<td>
 									&nbsp;&nbsp;<h3><b>Name : </b><?php echo $name ;?></h3>
-									&nbsp;&nbsp;<p><b>Email : </b><?php echo $email ;?></p>
-									&nbsp;&nbsp;<p><b>Gender : </b><?php echo "Female" ;?></p>
-									&nbsp;&nbsp;<p><b>Address : </b>5 Adarsh apt,43- B Jagabhai park, near LG hospital, Maninagar, Ahmedabad,India</p>								
-									&nbsp;&nbsp;<p><b>Contact Number :</b><?php echo "9825672753";?></p>
+									&nbsp;&nbsp;<p><b>Email : </b><?php echo $email ;?></p>					
 								</td>
 							</tr>
 						</table>
