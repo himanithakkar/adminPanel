@@ -1,21 +1,5 @@
 <?php
- /*define('HOST','166.62.10.30');
- define('USER','db_vraj');
- define('PASS','3112@vraj');
- define('DB','vraj_db');
  
- $conn = mysql_connect(HOST,USER,PASS,DB);
- if(!$conn) {
-   die('Unable to Connect'.mysql_error());
-}
-$conn = mysql_connect('166.62.10.30', 'db_vraj', '3112@vraj');
-	if (!$conn) {
-		die('Could not connect: ' . mysql_error());
-	}
-	mysql_select_db("vraj_db");
-	*/
-
-
 	$conn = mysql_connect('localhost', 'root', '');
 	if (!$conn) {
 		die('Could not connect: ' . mysql_error());
