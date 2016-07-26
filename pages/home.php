@@ -1,12 +1,5 @@
 <?php include "header.php";
       include "sidenav.php";
-
-    if(isset($_SESSION['user']) && count($_SESSION['user'])>0){
-    $user_id = $_SESSION['user']['admin_user_id'];
-    $name = $_SESSION['user']['admin_name'];
-    $email = $_SESSION['user']['admin_email'];
-    $user_image = $_SESSION['user']['user_image'];
-}
 ?>         
 
         <div id="page-wrapper">

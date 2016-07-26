@@ -51,7 +51,7 @@ $query = "select * from product";
                         <div class="table-responsive"><!--table  div class-->
 							<table class="table table-hover" ><!--table class-->
 							<tr>
-								<th>phpto</th>
+								<th>photo</th>
 								<th>Name</th>
 								<th>description</th>
 								<th>category name</th>

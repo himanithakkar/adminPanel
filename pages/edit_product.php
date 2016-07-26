@@ -63,7 +63,7 @@ include "sidenav.php";
 		
 					<table align="center"><!--table class-->
 					<tr>
-						<td> Product Name :</td> <td> <input type="text" name="pname" class="form-control" value="<?php echo $row['name']; ?>"></td>
+						<td> Product Name :</td> <td> <input type="text" name="pname" class="form-control" value="<?php echo $row['product_name']; ?>"></td>
 					</tr>
 					<tr>
 							<td><br />Product Id :</td> <td> <input type="text" name="pid" class="form-control" value="<?php echo $row['product_id']; ?>"></td>

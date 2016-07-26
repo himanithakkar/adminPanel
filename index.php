@@ -1,6 +1,6 @@
 <?php 
 include "pages/db_conn.php";
-session_start();
+
 $error=0;
 $message = "";
 
@@ -38,7 +38,7 @@ if(isset($_REQUEST['txtEmail']) && isset($_REQUEST['txtPassword'])){
     <meta name="author" content="">
 
     <title>Admin Panel</title>
-
+    <link rel="icon" type="img/ico" href="vraj1.ico">
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
