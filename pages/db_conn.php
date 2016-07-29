@@ -1,6 +1,5 @@
 <?php
- 
-<<<<<<< HEAD
+ /*
  $conn = mysqli_connect(HOST,USER,PASS,DB);
  if(!$conn) {
    die('Unable to Connect'.mysql_error());
@@ -13,8 +12,6 @@ $conn = mysql_connect('166.62.10.30', 'db_vraj', '3112@vraj');
 	*/
 
 
-=======
->>>>>>> origin/master
 	$conn = mysql_connect('localhost', 'root', '');
 	if (!$conn) {
 		die('Could not connect: ' . mysql_error());

@@ -1,6 +1,5 @@
 <?php 
 include "pages/db_conn.php";
-
 $error=0;
 $message = "";
 if(isset($_REQUEST['txtEmail']) && isset($_REQUEST['txtPassword'])){
