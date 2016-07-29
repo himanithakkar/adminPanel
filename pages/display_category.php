@@ -10,14 +10,14 @@ $query = "select category_id,name,status from category";
 	if(isset($_REQUEST['msg'])){
 		if($_REQUEST['msg']=="success"){
 ?>
-				<div class="alert alert-success">
+				<div class="alert alert-danger">
                     <strong><?php echo $msg = "Category is deleted successfully!"; ?></strong>
                 </div>
 <?php
 			$msg = "Category is deleted successfully!";
 		}else if($_REQUEST['msg']=="failure"){
 ?>
-				<div class="alert alert-danger">
+				<div class="alert alert-warning">
                     <strong><?php echo $msg = "Category is not deleted!"; ?></strong>
                 </div>
 <?php
@@ -45,6 +45,7 @@ $query = "select category_id,name,status from category";
 							Manage Category
                             </li>
 							<li class="active">
+							<i class="fa fa-fw fa-table"></i>
 							Display Category
                             </li>
                         </ol>

@@ -13,17 +13,12 @@
                             <img src="../vraj1.png" title="logo" alt="logo" height="70">
                             <small>Dashboard</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
-                            </li>
-                        </ol>
                     </div>
                 </div>
                 <!-- /.row -->
                  <div class="jumbotron">
-                    <h1>Welcome,Admin</h1>
-                    <p> What would you like to do to day? </p>
+                    <h1>Welcome, <?php echo $_SESSION['user']['admin_name'];?></h1>
+                    <p> What would you like to do today? </p>
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
@@ -39,7 +34,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="manage_user.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -62,7 +57,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="manage_order.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -84,7 +79,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="display_category.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -106,7 +101,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="display_products.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

@@ -2,7 +2,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="home.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="home.php"><i class="fa fa-home"></i> Dashboard</a>
                     </li>
                     <li>
                          <a href="javascript:;" data-toggle="collapse" data-target="#cateogory"><i class="fa fa-fw fa-arrows-v"></i> Manage Category</a>

@@ -3,9 +3,6 @@ include "pages/db_conn.php";
 
 $error=0;
 $message = "";
-
-
-
 if(isset($_REQUEST['txtEmail']) && isset($_REQUEST['txtPassword'])){
         $email = $_REQUEST['txtEmail'];
         $password = $_REQUEST['txtPassword'];
@@ -14,17 +11,19 @@ if(isset($_REQUEST['txtEmail']) && isset($_REQUEST['txtPassword'])){
         $result = mysql_query($query,$conn);
         if(mysql_num_rows($result)>0){
             $row = mysql_fetch_array($result);
+            session_start();
             $_SESSION['user'] = $row;
             $user_id=$_SESSION['user']['admin_user_id'];
-            //print_r($_SESSION);die;
+            $query = "update admin_user set lastlogin ='$lastlogin' where admin_user_id='$user_id'";
             redirect("pages/home.php");
-            $query = "insert into admin_user(lastlogin) values('$lastlogin') where admin_user_id='$user_id' ";
 
         }else{
             $error=1;
-            $message = "<font color='red'>Invalid Email/password</font>";
+            $message = "Invalid Email or password";
         }
     }
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -2,12 +2,13 @@
 include "header.php";
 include "sidenav.php";
 
+
 if(isset($_SESSION['user']) && count($_SESSION['user'])>0){
 	$user_id = $_SESSION['user']['admin_user_id'];
 	$name = $_SESSION['user']['admin_name'];
 	$email = $_SESSION['user']['admin_email'];
-	$user_image = $_SESSION['user']['user_image'];
-}*/
+    $lastlogin = $_SESSION['user']['lastlogin'];
+}
 ?>
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -34,11 +35,9 @@ if(isset($_SESSION['user']) && count($_SESSION['user'])>0){
 						<table>
 							<tr>
 								<td>
-								<img src="" width="259" <?php // echo $user_image ;?>" alt="<?php echo $name ;?>" /></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								</td>
-								<td>
-									&nbsp;&nbsp;<h3><b>Name : </b><?php echo $name ;?></h3>
-									&nbsp;&nbsp;<p><b>Email : </b><?php echo $email ;?></p>					
+									&nbsp;&nbsp;<h4><b>Name : </b><?php echo $name ;?></h4>
+									&nbsp;&nbsp;<h4><b>Email : </b><?php echo $email ;?></h4>
+                                    &nbsp;&nbsp;<h4><b>Last Login : </b><?php echo $lastlogin ;?></h4>					
 								</td>
 							</tr>
 						</table>

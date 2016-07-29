@@ -27,7 +27,7 @@ include "sidenav.php";
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            <img src="vraj1.png" title="logo" alt="logo" height="70">
+                            <img src="../vraj1.png" title="logo" alt="logo" height="70">
                             <small>Add Products</small>
                         </h1>
                         <ol class="breadcrumb">
@@ -38,6 +38,7 @@ include "sidenav.php";
 							Manage Products
                             </li>
 							 <li class="active">
+							 <i class="fa fa-fw fa-edit"></i>
 							Add Products
                             </li>
                         </ol>
@@ -48,7 +49,7 @@ include "sidenav.php";
                     <div class="col-lg-12">            
                         <div class="table-responsive"><!--table  div class-->
 						<form role="form" action="insert_product.php" method="post" style="text-align:center">
-					<table align="center" ><!--table class-->
+					<table><!--table class-->
 					<tr>
 						<td> Product Name :</td> 
 						<td>
@@ -60,6 +61,7 @@ include "sidenav.php";
 					</tr>
 					<tr>
 					<td> category :</td> <td> <select name="category" class="form-control">
+							<option value="0"> </option>
 						<?php
 							$query = "select category_id,name from category";
 							$cat_result = mysql_query($query,$conn);

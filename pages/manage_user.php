@@ -68,18 +68,44 @@ if(isset($_REQUEST['msg'])){
 					<table class="table table-hover" align="center" ><!--table class-->
 						<thead>
 						<tr>
+							<th>Photo</th>
 							<th>Name</th>
 							<th>Email</th>
 							<th>Gender</th>
 							<th>Contact No</th>
 							<th>Shipping Address</th>
 							<th>Billing Address</th>
+							<th>Last login</th>
 							<th>Status</th>
 							<th>Change Status</th>
 						</tr>
 						<thead>
 						<tbody>
+						<?php  while($row = mysql_fetch_array($u_result)) {
+									//print "<pre>";
+									//print_r($row);die;
+									$id=$row['user_id'];
+									$name=$row['user_name'];
+									$email=$row['user_emailid'];
+									$mobileno=$row['user_mobile'];
+									$ship_add=$row['user_shipping_addln1'].$row['user_shipping_addln2'];
+									$bill_add=$row['user_billing_addln1'].$row['user_billing_addln2'];
+									$lastlogin=$row['lastlogin'];
+								if($row['user_status']==1)
+								{
+										$status='active';
+								}
+								else
+								{
+										$status='inactive';
+								}
+						 ?>
 							<tr>
+								<td>
+									<img class="img-thumbnail" src="<?php if(!$row['user_image']){
+									echo "http://placehold.it/400x400";} else{ echo "../images/user/".$row['user_image'];
+								}?>" alt="">
+								</td>
 								<td>Himani Thakakar</td>
 								<td>HImani@gmail.com</td>
 								<td>Female</td>
@@ -101,28 +127,7 @@ if(isset($_REQUEST['msg'])){
 							</tr>
 
 
-						<?php /* while($row = mysql_fetch_array($u_result)) {
-									//print "<pre>";
-									//print_r($row);die;
-									$id=$row['usermaster_id'];
-									$sh_query="select add1,add2 from user_shipping_address where usermaster_id='$id'";
-									$sh_result=mysql_query($sh_query,$conn);
-									$bl_query="select add1,add2 from user_billing_address where usermaster_id='$id'";
-									$bl_result=mysql_query($bl_query,$conn);
-									
-							while($bl_row = mysql_fetch_array($bl_result)) {
-							
-							while($sh_row = mysql_fetch_array($sh_result)) {
-							
-								if($row['status']==1)
-								{
-										$status='active';
-								}
-								else
-								{
-										$status='inactive';
-								}
-						 ?>
+						
 						<tr>
 							<td><?php echo $row['f_name']." ".$row['l_name']; ?></td>
 							<td><?php echo $row['email']; ?></td>

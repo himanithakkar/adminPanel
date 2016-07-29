@@ -45,9 +45,11 @@ include "sidenav.php";
 							Manage Products
                             </li>
 							<li class="active">
+							<i class="fa fa-fw fa-table"></i>
 							Display Products
                             </li>
 							<li class="active">
+							<i class="fa fa-fw fa-edit"></i>
 							Edit Products
                             </li>
                         </ol>
@@ -61,18 +63,27 @@ include "sidenav.php";
 							<input type="hidden" name="pid" value="<?php echo $id; ?>" />
                             <div class="form-group">
 		
-					<table align="center"><!--table class-->
+					<table ><!--table class-->
 					<tr>
-						<td> Product Name :</td> <td> <input type="text" name="pname" class="form-control" value="<?php echo $row['product_name']; ?>"></td>
+						<td> Product Name :</td> 
+						<td> 
+							<input type="text" name="pname" class="form-control" value="<?php echo $row['product_name']; ?>"><br>
+						</td>
 					</tr>
 					<tr>
 							<td><br />Product Id :</td> <td> <input type="text" name="pid" class="form-control" value="<?php echo $row['product_id']; ?>"></td>
 					</tr>
 					<tr>
-							<td>Description:</td> <td> <br><textarea rows="5" cols="30" class="form-control" name="ldesc"><?php echo $row['product_desc']; ?></textarea></td>
+							<td>Description:</td> 
+							<td> <br>
+								<textarea rows="5" cols="30" class="form-control" name="desc">
+								<?php echo $row['product_desc']; ?>
+								</textarea>
+							</td>
 					</tr>
 					<tr>
-					<td> <br />category : </td> <td><select name="category" class="form-control">
+					<td> <br />Category : </td> <td><select name="category" class="form-control">
+					
 						<?php
 							$query = "select category_id,name from category";
 							$cat_result = mysql_query($query,$conn);

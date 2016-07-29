@@ -4,7 +4,7 @@
  define('PASS','3112@vraj');
  define('DB','vraj_db');
  
- $conn = mysql_connect(HOST,USER,PASS,DB);
+ $conn = mysqli_connect(HOST,USER,PASS,DB);
  if(!$conn) {
    die('Unable to Connect'.mysql_error());
 }

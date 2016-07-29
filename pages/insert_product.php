@@ -11,7 +11,7 @@
 	}else{
 		$status = 0;
 	}*/
-	$new_filename = productImageUpload($_FILES['product_image'],"uploaded_images/product/");
+	$new_filename = productImageUpload($_FILES['product_image'],"../images");
 	
 	$query = "insert into product(product_name,category_id,product_desc,price,product_image) values('$pname',$cat_id,'$sdesc','$ldesc',$price,'$new_filename')";
 		$result = mysql_query($query,$conn);

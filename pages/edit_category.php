@@ -50,9 +50,11 @@ if(isset($_REQUEST['id'])){
 							Manage Category
                             </li>
 							<li class="active">
+							<i class="fa fa-fw fa-table"></i>
 							Display Category
                             </li>
 							<li class="active">
+							<i class="fa fa-fw fa-edit"></i>
 							Edit Category
                             </li>
                         </ol>

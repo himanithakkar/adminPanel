@@ -6,13 +6,13 @@ $query = "select * from product";
 	if(isset($_REQUEST['msg'])){
 			if($_REQUEST['msg']=="success"){
 ?>
-				<div class="alert alert-success">
+				<div class="alert alert-danger">
                     <strong><?php echo $msg = "Product is deleted successfully!"; ?></strong>
                 </div>
 <?php
 		}else if($_REQUEST['msg']=="failure"){
 ?>
-				<div class="alert alert-danger">
+				<div class="alert alert-warning">
                     <strong><?php echo $msg = "Product is not deleted!"; ?></strong>
                 </div>
 <?php
@@ -40,6 +40,7 @@ $query = "select * from product";
 							Manage Products
                             </li>
 							<li class="active">
+							<i class="fa fa-fw fa-table"></i>
 							Display Products
                             </li>
                         </ol>
@@ -51,11 +52,11 @@ $query = "select * from product";
                         <div class="table-responsive"><!--table  div class-->
 							<table class="table table-hover" ><!--table class-->
 							<tr>
-								<th>photo</th>
+								<th>Photo</th>
 								<th>Name</th>
-								<th>description</th>
-								<th>category name</th>
-								<th>price</th>
+								<th>Description</th>
+								<th>Category name</th>
+								<th>Price</th>
 								<th>Edit</th>
 								<th>Delete</th>
 							</tr>
@@ -64,7 +65,10 @@ $query = "select * from product";
 							{
 							?>
 							<tr>
-								<td><?php echo $row['product_id']; ?></td>
+								<td><img class="img-thumbnail" src="<?php if(!$row['product_image']){
+									echo "http://placehold.it/400x400";} else{ echo "../images/".$row['product_image'];
+								}?>" alt="">
+								</td>
 								<td><?php echo strtoupper($row['product_name']); ?></td>
 								<td><?php echo $row['product_desc']; ?></td>
 

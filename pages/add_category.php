@@ -38,6 +38,7 @@ include "sidenav.php";
 								Manage Category
                             </li>
 							 <li class="active">
+							 <i class="fa fa-fw fa-edit"></i>
 								Add Category
                             </li>
                         </ol>
