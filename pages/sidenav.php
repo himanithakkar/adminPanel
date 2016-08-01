@@ -42,7 +42,7 @@
                                 <a href="#"><i class="fa fa-fw fa-shopping-cart"></i> Order Report</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-user"></i> User Report</a>
+                                <a href="user_report.php"><i class="fa fa-fw fa-user"></i> User Report</a>
                             </li>
                         </ul>
                     </li>

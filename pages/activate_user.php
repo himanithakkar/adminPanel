@@ -1,11 +1,12 @@
 <?php
-	include "dbcon.php";
+ob_start();
+	include "db_conn.php";
 	$uid=$_REQUEST['id'];
 	if($status == 0)
 		$status = 1;
 	
 	
-	$query = "update user_master set status='$status' where usermaster_id=$uid";
+	$query = "update user set user_status='$status' where user_id=$uid";
 	
 	$result = mysql_query($query,$conn);
 	
@@ -13,5 +14,5 @@
 		header("Location:manage_user.php?id=$uid&msg=approval_success");
 	else
 		header("Location:manage_user.php?id=$uid&msg=approval_failure");
-	
+		ob_end_flush();
 ?>

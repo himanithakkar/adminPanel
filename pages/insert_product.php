@@ -1,4 +1,5 @@
 <?php
+ob_start();
 	include "db_conn.php";
 	//$pid= $_REQUEST["pid"];
 	$pname = $_REQUEST["pname"];
@@ -21,5 +22,5 @@
 	else
 		header("Location:add_product.php?id=$id&msg=failure");
 		
-	
+		ob_end_flush();
 ?>

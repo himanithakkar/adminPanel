@@ -35,7 +35,7 @@ if(isset($_REQUEST['txtEmail']) && isset($_REQUEST['txtPassword'])){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin Panel</title>
+    <title>Vraj Admin Panel</title>
     <link rel="icon" type="img/ico" href="vraj1.ico">
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

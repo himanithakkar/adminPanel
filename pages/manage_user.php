@@ -14,19 +14,19 @@ if(isset($_REQUEST['msg'])){
 <?php
 		}else if($_REQUEST['msg']=="approval_failure"){
 ?>
-				<div class="alert alert-danger">
+				<div class="alert alert-warning">
                     <strong><?php echo $msg = "User is cannot be Activated!"; ?></strong>
                 </div>
 <?php
 		}else if($_REQUEST['msg']=="disapproval_success"){
 ?>
-				<div class="alert alert-success">
+				<div class="alert alert-danger">
                     <strong><?php echo $msg = "User is Deactivated!"; ?></strong>
                 </div>
 <?php
 		}else if($_REQUEST['msg']=="disapproval_failure"){
 ?>
-				<div class="alert alert-danger">
+				<div class="alert alert-warning">
                     <strong><?php echo $msg = "User is cannot be Deacivated!"; ?></strong>
                 </div>
 
@@ -51,7 +51,7 @@ if(isset($_REQUEST['msg'])){
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="home.php">Dashboard</a>
+                                <i class="fa fa-home"></i>  <a href="home.php">Dashboard</a>
                             </li>
                             <li class="active">
 							<i class="fa fa-user"></i> Manage User
@@ -77,7 +77,7 @@ if(isset($_REQUEST['msg'])){
 							<th>Billing Address</th>
 							<th>Last login</th>
 							<th>Status</th>
-							<th>Change Status</th>
+							<th>Change status</th>
 						</tr>
 						<thead>
 						<tbody>
@@ -91,14 +91,14 @@ if(isset($_REQUEST['msg'])){
 									$ship_add=$row['user_shipping_addln1'].$row['user_shipping_addln2'];
 									$bill_add=$row['user_billing_addln1'].$row['user_billing_addln2'];
 									$lastlogin=$row['lastlogin'];
-								if($row['user_status']==1)
-								{
+									if($row['user_status']==1)
+									{
 										$status='active';
-								}
-								else
-								{
+									}
+									else
+									{
 										$status='inactive';
-								}
+									}
 						 ?>
 							<tr>
 								<td>
@@ -106,27 +106,24 @@ if(isset($_REQUEST['msg'])){
 									echo "http://placehold.it/400x400";} else{ echo "../images/user/".$row['user_image'];
 								}?>" alt="">
 								</td>
-								<td>Himani Thakakar</td>
-								<td>HImani@gmail.com</td>
+								<td><?php echo $name; ?></td>
+								<td><?php echo $email; ?></td>
 								<td>Female</td>
-								<td>96975974894</td>
-								<td>16 XYZ apartment, near ABC area, India</td>
-								<td></td>
-								<td>Deactivate</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Akash mehta</td>
-								<td>akash@gmail.com</td>
-								<td>Male</td>
-								<td>96975974894</td>
-								<td>16 GHN apartment, near ABC area, India</td>
-								<td></td>
-								<td>Active</td>
+								<td><?php echo $mobileno; ?></td>
+								<td><?php echo $ship_add; ?></td>
+								<td><?php echo $bill_add; ?></td>
+								<td><?php echo $lastlogin; ?></td>
+								<td><?php echo $status; ?></td>
+								<td>
+									<?php 		if($row['user_status']==1) {?>
+													<a href="diactivate_user.php?id=<?php echo $row['user_id']; ?>">Deactivate</a>
+									<?php		}else{ ?>
+													<a href="activate_user.php?id=<?php echo $row['user_id']; ?>">Activate</a>
+									<?php 		} ?></a>
 								</td>
 							</tr>
 
-
+						<?php } /*?>
 						
 						<tr>
 							<td><?php echo $row['f_name']." ".$row['l_name']; ?></td>

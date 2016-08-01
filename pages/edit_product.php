@@ -82,19 +82,18 @@ include "sidenav.php";
 							</td>
 					</tr>
 					<tr>
-					<td> <br />Category : </td> <td><select name="category" class="form-control">
-					
+					<td> <br />category : </td> <td><select name="category" class="form-control">
 						<?php
 							$query = "select category_id,name from category";
 							$cat_result = mysql_query($query,$conn);
 							while($cat_row = mysql_fetch_array($cat_result)){
-								if($cat_row['id'] == $row['category_id'])
+								if($cat_row['category_id'] == $row['category_id'])
 									$selected = "selected";
 								else
 									$selected = "";
 						?>
 
-								<option value="<?php echo $cat_row['id']; ?>" <?php echo $selected; ?>>  <?php echo $cat_row['name']; ?> </option>
+								<option value="<?php echo $cat_row['category_id']; ?>" <?php echo $selected; ?>>  <?php echo $cat_row['name']; ?> </option>
 						<?php
 							}
 						?>		</select>

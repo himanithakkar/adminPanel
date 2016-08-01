@@ -23,7 +23,6 @@
                         </ol>
                         <div class="row">
                     <div class="col-lg-">
-                        <h2>Ordres</h2>
                         <div class="table-responsive">
                             <table class="table t2able-hover">
                                 <thead>

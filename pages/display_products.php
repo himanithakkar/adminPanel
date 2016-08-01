@@ -66,8 +66,8 @@ $query = "select * from product";
 							?>
 							<tr>
 								<td><img class="img-thumbnail" src="<?php if(!$row['product_image']){
-									echo "http://placehold.it/400x400";} else{ echo "../images/".$row['product_image'];
-								}?>" alt="">
+									echo "http://placehold.it/400x400";} else{ echo $row['product_image'];
+								}?>"alt="">
 								</td>
 								<td><?php echo strtoupper($row['product_name']); ?></td>
 								<td><?php echo $row['product_desc']; ?></td>

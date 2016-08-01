@@ -1,4 +1,5 @@
 <?php
+ob_start();
 	include "db_conn.php";
 	$uid=$_REQUEST['id'];
 	if($status == 1)
@@ -13,5 +14,5 @@
 		header("Location:manage_user.php?id=$uid&msg=disapproval_success");
 	else
 		header("Location:manage_user.php?id=$uid&msg=disapproval_failure");
-	
+	ob_end_flush();
 ?>

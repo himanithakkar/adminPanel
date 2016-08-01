@@ -65,12 +65,17 @@ $query = "select category_id,name,status from category";
 						</tr>
 						<?php
 						while($row = mysql_fetch_array($result)){
-							if($row['status']==1)
+							if($row['status']==1){
 								$status = "Active";
-							else
+							}
+							else{
 								$status = "InActive";
+							}
+							print "<pre>";
+							print_r($result); die;
 						?>
 						<tr>
+
 							<td><?php echo $row['category_id']; ?></td>
 							<td><?php echo strtoupper($row['name']); ?></td>
 							<td><?php echo $status; ?></td>

@@ -1,5 +1,6 @@
 
 <?php
+ob_start();
 	include "db_conn.php";
 	$id= $_REQUEST["txtid"];
 	$name = $_REQUEST["txtName"];
@@ -24,6 +25,6 @@
 		header("Location:add_category.php?id=$id&msg=success");
 	else
 		header("Location:add_category.php?id=$id&msg=failure");
-		
+			ob_end_flush();
 	
 ?>

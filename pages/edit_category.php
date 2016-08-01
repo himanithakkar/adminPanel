@@ -61,50 +61,50 @@ if(isset($_REQUEST['id'])){
                     </div>
                 </div>
                 <!-- /.row -->
+                <br>
 	 		<div class="row">
-                    <div class="col-lg-12">            
+                    <div class="col-lg-12"> 
+                    <div class="col-lg-1"> </div>           
                         <div class="table-responsive"><!--table  div class-->
-						  <form role="form" action="update_category.php" method="post" style="text-align:center">
-
+						  <form role="form" action="update_category.php" method="post" style="">
                             <div class="form-group">
-		<input type="hidden" name="txtid" value="<?php echo $id; ?>" />
-					<table align="center"><!--table class-->
-						<tr>
-							<td>Category Name:</td>
-							<td><input type="text" name="txtName" value="<?php echo $row['name']; ?>" class="form-control" /><br /></td>
-						</tr>
-						<tr>
-							<td>Status:</td>
-							<td><label><input type="checkbox" name="chkStatus" class="option-input checkbox" <?php echo $checked; ?> />Active<label><br /></td>
-						</tr>
-						<tr>
-							<td> Select parent category :</td><td> <select name="parent_category" class="form-control">
-							<option value="0"> </option>
-							<?php
-								$query = "select category_id,name from category";
-								$cat_result = mysql_query($query,$conn);
-								while($cat_row = mysql_fetch_array($cat_result)){
-									if($cat_row['id'] == $row['category_id'])
-										$selected = "selected";
-									else
-										$selected = "";
-							?>
+							<input type="hidden" name="txtid" value="<?php echo $id; ?>" />
+							<table><!--table class-->
+								<tr>
+									<td>Category Name:</td>
+									<td><input type="text" name="txtName" value="<?php echo $row['name']; ?>" class="form-control" /><br /></td>
+								</tr>
+								<tr>
+									<td>Status:</td>
+									<td><label><input type="checkbox" name="chkStatus" class="option-input checkbox" <?php echo $checked; ?> />Active<label><br /></td>
+								</tr>
+								<tr>
+									<td> Select parent category :</td><td> <select name="parent_category" class="form-control">
+									<option value="0"> </option>
+									<?php
+										$query = "select category_id,name from category";
+										$cat_result = mysql_query($query,$conn);
+										while($cat_row = mysql_fetch_array($cat_result)){
+											if($cat_row['id'] == $row['category_id'])
+												$selected = "selected";
+											else
+												$selected = "";
+									?>
 
-									<option value="<?php echo $cat_row['id']; ?>" <?php echo $selected; ?>>  <?php echo $cat_row['name']; ?> </option>
-							<?php
-								}
-							?>		</select> <br />
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2">
-								<input type="submit" value="Submit" class="btn btn-primary btn-lg" />
-							</td>
-						</tr>
-					
-					</table>
-				</div>
-			</form>
+											<option value="<?php echo $cat_row['id']; ?>" <?php echo $selected; ?>>  <?php echo $cat_row['name']; ?> </option>
+									<?php
+										}
+									?>		</select> <br />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<input type="submit" value="Submit" class="btn btn-primary btn-lg" />
+									</td>
+								</tr>
+							</table>
+						</div>
+					</form>
 				</div>
 				</div>
             </div>

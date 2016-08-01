@@ -45,11 +45,13 @@ include "sidenav.php";
                     </div>
                 </div>
                 <!-- /.row -->
+                <br>
 	 		<div class="row">
-                    <div class="col-lg-12">            
+                    <div class="col-lg-12">  
+                    <div class="col-lg-1"> </div>          
                         <div class="table-responsive"><!--table  div class-->
-						<form role="form" action="insert_category.php" method="post" style="text-align:center">
-					<table align="center"><!--table class-->
+						<form role="form" action="insert_category.php" method="post" style="">
+					<table ><!--table class-->
 					<tr>
 					<td>Category Name:</td>
 					<td><input type="text" name="txtName" class="form-control" /><br /></td>
