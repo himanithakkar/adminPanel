@@ -4,7 +4,7 @@ ob_start();
 	//$pid= $_REQUEST["pid"];
 	$pname = $_REQUEST["pname"];
 	$cat_id=$_REQUEST["category"];
-	$sdesc = $_REQUEST["desc"];
+	$desc = $_REQUEST["desc"];
 	$price =$_REQUEST["price"];
 	
 	/*if(isset($_REQUEST["chkStatus"]) && $_REQUEST["chkStatus"]=="on"){
@@ -14,7 +14,7 @@ ob_start();
 	}*/
 	$new_filename = productImageUpload($_FILES['product_image'],"../images");
 	
-	$query = "insert into product(product_name,category_id,product_desc,price,product_image) values('$pname',$cat_id,'$sdesc','$ldesc',$price,'$new_filename')";
+	$query = "insert into product(product_name,category_id,product_desc,price,product_image) values('$pname',$cat_id,'$desc',$price,'$new_filename')";
 		$result = mysql_query($query,$conn);
 		
 	if($result)

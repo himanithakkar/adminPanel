@@ -71,8 +71,6 @@ $query = "select category_id,name,status from category";
 							else{
 								$status = "InActive";
 							}
-							print "<pre>";
-							print_r($result); die;
 						?>
 						<tr>
 
