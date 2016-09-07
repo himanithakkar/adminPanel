@@ -6,12 +6,16 @@ ob_start();
 	$desc = $_REQUEST["desc"];
 	$price=$_REQUEST["price"];
 	$category=$_REQUEST["category"];
-	
-	if($_FILES['product_image']['tmp_name']!="" && $_FILES['product_image']['size']>0){
-		$new_filename = productImageUpload($_FILES['product_image'],"uploaded_images/product/");
-		$query = "update product set product_name='$name', product_image='$new_filename', price='$price', product_desc='$desc' where product_id=$id";
+	if(isset($_REQUEST["chkStatus"]) && $_REQUEST["chkStatus"]=="on"){
+		$status = 1;
 	}else{
-		$query = "update product set product_name='$name', price='$price', product_desc='$desc' where product_id=$id";
+		$status = 0;
+	}
+	if($_FILES['product_image']['tmp_name']!="" && $_FILES['product_image']['size']>0){
+		$new_filename = productImageUpload($_FILES['product_image'],"..images");
+		$query = "update product set product_name='$name', product_image='$new_filename', price='$price', product_desc='$desc',product_status='$status' where product_id=$id";
+	}else{
+		$query = "update product set product_name='$name', price='$price', product_desc='$desc',product_status='$status' where product_id=$id";
 	}
 	
 	$result = mysql_query($query,$conn);

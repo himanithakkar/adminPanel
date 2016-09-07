@@ -7,14 +7,14 @@ ob_start();
 	$desc = $_REQUEST["desc"];
 	$price =$_REQUEST["price"];
 	
-	/*if(isset($_REQUEST["chkStatus"]) && $_REQUEST["chkStatus"]=="on"){
+	if(isset($_REQUEST["chkStatus"]) && $_REQUEST["chkStatus"]=="on"){
 		$status = 1;
 	}else{
 		$status = 0;
-	}*/
+	}
 	$new_filename = productImageUpload($_FILES['product_image'],"../images");
-	
-	$query = "insert into product(product_name,category_id,product_desc,price,product_image) values('$pname',$cat_id,'$desc',$price,'$new_filename')";
+	$new_filename='http://klickpicgo.com/images'.$new_filename;
+	$query = "insert into product(product_name,category_id,product_desc,price,product_image,product_status) values('$pname',$cat_id,'$desc',$price,'$new_filename','$status')";
 		$result = mysql_query($query,$conn);
 		
 	if($result)

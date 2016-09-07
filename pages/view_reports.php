@@ -1,6 +1,10 @@
 <?php 
 include "header.php";
 include "sidenav.php";
+if(!isset($_SESSION['user']) || count($_SESSION['user'])<=0){
+		redirect("../index.php");
+}
+
 if(isset($_REQUEST['order_report']) && $_REQUEST['order_report']=="Generate Report")//condition of order reports
 {
 	$oquery = "select * from order_master where total>0";
