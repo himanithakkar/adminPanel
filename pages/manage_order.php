@@ -9,6 +9,41 @@ if(!isset($_SESSION['user']) || count($_SESSION['user'])<=0){
 		$order_query = "select * from order_master order by order_timestamp desc";
 	
 	$order_result = mysql_query($order_query,$conn);
+	
+$message = "";
+
+if(isset($_REQUEST['message']))
+{
+	if($_REQUEST['message']=="success")
+	{
+?>
+		<div class="alert alert-success">
+			<strong>
+				<?php echo $message = "Current order details has been sent to the customer!"; ?>
+			</strong>
+		</div>
+<?php
+	}
+	else if($_REQUEST['message']=="failure")
+	{
+?>
+		<div class="alert alert-danger">
+			<strong><?php echo $message = "Cannot send order details to customer's e-mail address.Problem with sending email..."; ?>
+			</strong>
+		</div>
+<?php
+	}
+}else{
+			$message = "";
+	}
+
+?>
+
+
+
+
+<?php
+
 	if(isset($_REQUEST['msg'])){
 		if($_REQUEST['msg']=="success"){
 ?>
@@ -110,6 +145,7 @@ if(!isset($_SESSION['user']) || count($_SESSION['user'])<=0){
 										<th wrap>Shipping address </th>
 										<!--<th>Shipping date</th>-->
 										<th nowrap>View Details</th>
+										<th><i class="fa fa-envelope-o fa-lg"></i></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -145,7 +181,7 @@ if(!isset($_SESSION['user']) || count($_SESSION['user'])<=0){
 									<td nowrap><?php echo $order_row['order_timestamp']; ?></td>
 									<td ><?php echo getUserName($order_row['user_id'],$conn); ?></td>
 
-									<td nowrap><a href="manage_order.php?user_id=<?php echo $order_row['user_id']; ?>"><?php echo getUserEmail($order_row['user_id'],$conn); ?></a></td>
+									<td nowrap><a href="manage_order.php?user_id=<?php echo $order_row['user_id']; ?>"><?php echo $email=getUserEmail($order_row['user_id'],$conn); ?></a></td>
 
 									<td nowrap><?php echo $order_row['order_total']; ?><i class="fa fa-rupee"></i></td>
 									<td nowrap>
@@ -191,6 +227,15 @@ if(!isset($_SESSION['user']) || count($_SESSION['user'])<=0){
 										</script>
 									</td>*/ ?>
 									<td nowrap><a href="view_order.php?id=<?php echo $order_row['order_id'];?>">View Details</a>
+									</td>
+									<td>
+										<?php
+											$oid=$order_row['order_id'];
+											$email;
+										?>
+										<a href="email_order_details.php?oid=<?php echo $oid?>&email=<?php echo
+										$email?>"><i class="fa fa-envelope-o fa-lg"></i>
+										</a>
 									</td>
 								</tr>
 							<?php

@@ -16,6 +16,7 @@ if(isset($_REQUEST['txtEmail'])){
 
 			$rows=mysql_fetch_array($result);
 			$pass = $rows['admin_pass'];//FETCHING PASS
+			$name = $rows['admin_name'];
 			//$pass = md5($pass);
 			//echo "your pass is ::".($pass)."";
 			$to = $rows['admin_email'];
@@ -26,13 +27,12 @@ if(isset($_REQUEST['txtEmail'])){
 			$url = "http://admin.klickpicgo.com/reset_password.php?hash=$rand_hash";
 			$body  =  "<html>
 							<body>
-								<h2 color='black'><b>Vraj Admin password recovery Script</b></h2>
+								<p>
+								Dear $name,						
 								<br>
 								<hr></hr>
-								<p>
-									</br>Click on the password recovery link below to reset your password
+									<br>Click on the password recovery link below to reset your password<br>
 									<br>Url : $url;
-									<br>Email Details is : $to;
 									<br><br>
 									Sincerely,<br>
 									Team Vraj
@@ -40,7 +40,7 @@ if(isset($_REQUEST['txtEmail'])){
 							</body>
 						</html>";
 			$from = "no-reply@klickpicgo.com";
-			$subject = "Vraj Admin Password recovery-";
+			$subject = "Vraj Admin Password recovery";
 			$headers1 = "From: $from\n";
 			$headers1 .= "Content-type: text/html;charset=iso-8859-1\r\n";
 			$headers1 .= "X-Priority: 1\r\n";
@@ -60,7 +60,7 @@ if(isset($_REQUEST['txtEmail'])){
 		if($sentmail==1)
 		{
 			$error=2;
-			$message2 = "Your Password Has Been Sent To Your Email Address.";
+			$message2 = "Your password recovery link has been sent to your email address.";
 			$r_query = "update admin_user set recovery_hash='$rand_hash' where admin_email='$email' and admin_status=1";
 			$r_result = mysql_query($r_query,$conn) or die(mysql_error());
 		}
@@ -68,7 +68,7 @@ if(isset($_REQUEST['txtEmail'])){
 		{
 			if($_POST['txtEmail']!=""){
 				$error=3;
-				$message3 = "Cannot send password to your e-mail address.Problem with sending mail...";
+				$message3 = "Cannot send password recovery link to your e-mail address.Problem with sending email...";
 			}
 		}
 }
