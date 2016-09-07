@@ -13,11 +13,6 @@ if(isset($_REQUEST['hash']))
 		$row = mysql_fetch_array($result);
 		$uid = $row['admin_user_id'];
 		//echo "hash found"; die();
-	}else{
-		$message = "recovery hash not found";
-	}
-}
-
 
 if(isset($_REQUEST['msg']))
 {
@@ -125,9 +120,9 @@ if(isset($_REQUEST['msg']))
 		<!-- /#page-wrapper -->
 <?php 
 include "pages/footer.php";
-	
-/*}else{
-	echo "No hashcode";
-}*/
+	}else{
+		echo $message = "Invalid or expired URL";
+	}
+}
 
 ?>
