@@ -49,35 +49,43 @@ if(isset($_REQUEST['msg']))
 				<div class="row">
 					<div class="col-lg-12">
 							   
-						<div class="table-responsive"><!--table  div class-->
+						<div class="form-group">
 					<form role="form" action="update_password.php" method="post" >
 					<input type="hidden" name="txtuid" value="<?php echo $uid; ?>" /> 
-					<table align="center"><!--table class-->
-					
-					<tr>
-						<td>Old Password:</td>
-						 <td>
-						<input type="password" name="txtoldpass" class="form-control" placeholder="enter old password" /><br /></td></tr>
-					</tr>
-					<tr>
-						<td>New Password:</td>
-						 <td>
-						<input type="password" name="txtnewpass" class="form-control" class="form-control-static" placeholder="enter new password" />
-						<br /></td></tr>
-					</tr>
-					<tr>
-						<td>Confirm New Password: </td>
-						 <td>
-						<input type="password" name="txtcnewpass" class="form-control" class="form-control-static" placeholder="re-enter new password"  />
-						<br />
-						</td></tr>
-					</tr>
-						  <td colspan="2"> <input type="submit" value="Submit" href="change_password.php" class="btn btn-primary btn-lg"/></td>
-					</tr>
-				</table>
+						<table align="center"><!--table class-->
+							<tr>
+								<td><br>
+									Old Password:
+								</td>
+								<td><br>
+									<input type="password" name="txtoldpass" class="form-control" placeholder="enter old password" />
+								</td>
+							</tr>
+							<tr>
+								<td><br>
+									New Password:
+								</td>
+								 <td><br>
+									<input type="password" name="txtnewpass" class="form-control" class="form-control-static" placeholder="enter new password" />
+								</td>
+							</tr>
+							<tr>
+								<td><br>
+									Confirm New Password:&nbsp;
+								</td>
+								<td><br>
+									<input type="password" name="txtcnewpass" class="form-control" class="form-control-static" placeholder="re-enter new password"  />
+								</td>
+							</tr>
+								  <td colspan="2"> <br>
+								  	<center>
+								  	<input type="submit" value="Submit" href="change_password.php" class="btn btn-primary btn-lg"/>
+								  	</center>
+								  </td>
+							</tr>
+					</table>
 				</form>
-
-					</div>
+			</div>
 				</div>
 			</div>
 			</div>

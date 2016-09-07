@@ -9,6 +9,9 @@ if(isset($_REQUEST['txtEmail'])){
 		$query = "select * from admin_user where admin_email='$email' and admin_status=1";
 		$result = mysql_query($query,$conn) or die(mysql_error());
 
+		$rand_pass=rand(1000,9999);
+		$rand_hash=md5($rand_pass);
+
 		if(mysql_num_rows($result)>0){
 
 			$rows=mysql_fetch_array($result);
@@ -20,22 +23,24 @@ if(isset($_REQUEST['txtEmail'])){
 			//Details for sending E-mail
 			
 			$from = "Vraj";
-			$url = "http://admin.klickpicgo.com/";
+			$url = "http://admin.klickpicgo.com/reset_password.php?hash=$rand_hash";
 			$body  =  "<html>
 							<body>
-								<h2><b>Vraj Admin password recovery Script</b></h2>
+								<h2 color='black'><b>Vraj Admin password recovery Script</b></h2>
 								<br>
 								<hr></hr>
-								<br>Url : $url;
-								<br>Email Details is : $to;
-								<br>Here is your password  : $pass;
-								<br><br>
-								Sincerely,<br>
-								Team Vraj
+								<p>
+									</br>Click on the password recovery link below to reset your password
+									<br>Url : $url;
+									<br>Email Details is : $to;
+									<br><br>
+									Sincerely,<br>
+									Team Vraj
+								</p>
 							</body>
 						</html>";
-			$from = "info@klickpicgo.com";
-			$subject = "Vraj Admin Password recovered";
+			$from = "no-reply@klickpicgo.com";
+			$subject = "Vraj Admin Password recovery-";
 			$headers1 = "From: $from\n";
 			$headers1 .= "Content-type: text/html;charset=iso-8859-1\r\n";
 			$headers1 .= "X-Priority: 1\r\n";
@@ -56,6 +61,8 @@ if(isset($_REQUEST['txtEmail'])){
 		{
 			$error=2;
 			$message2 = "Your Password Has Been Sent To Your Email Address.";
+			$r_query = "update admin_user set recovery_hash='$rand_hash' where admin_email='$email' and admin_status=1";
+			$r_result = mysql_query($r_query,$conn) or die(mysql_error());
 		}
 		else
 		{
@@ -117,17 +124,29 @@ if(isset($_REQUEST['txtEmail'])){
 				</div>
 				<!-- /.row -->
 				<div class="form-group">
-				<form  name="formForgotPassword" action="forgot_password.php" method="post" style="text-align:center">
+				<form  name="formForgotPassword" action="forgot_password.php" method="post">
 				<label> <i class="fa fa-info-circle fa-lg"></i> We will send you a password recovery link to your registerd email address.</label>
 				<br><br>
 				<table border='0' align="center">
 					<tr>
-						<td>Email :</td><td> <input type="text" placeholder="xyz@example.com" name="txtEmail" class="form-control"> </td>
+						<td>
+							Email :
+						</td>
+						<td> 
+							<input type="text" placeholder="xyz@example.com" name="txtEmail" class="form-control"> 
+						</td>
 					</tr>
-						<td colspan="2"><br><input type="submit" name="submit" value="Send Recovery Email" class="btn btn-primary btn-lg" ></td>
+						<td colspan="2">
+						<br><br><center>
+						<input type="submit" name="submit" value="Send Recovery Email" class="btn btn-primary btn-lg" ></center>
+						</td>
 					</tr>
 					<tr>
-						<td colspan="2"><br><a href="index.php"><i class="fa fa-sign-in fa-lg"></i> Login</a></td>
+						<td colspan="2">
+							<center>
+							<br><br><a href="index.php"><i class="fa fa-sign-in fa-lg"></i> Login</a>
+							</center>
+						</td>
 					</tr>
 				</table>
 				<br>

@@ -2,6 +2,30 @@
 include "pages/db_conn.php";
 $error=0;
 $message = "";
+$msg="";
+  
+
+
+if(isset($_REQUEST['msg']))
+{
+	if($_REQUEST['msg']=="success"){
+?>
+				<div class="alert alert-success">
+					<strong><?php echo "Your password has been successfully reset please login with your new password!"; ?></strong>
+				</div>
+<?php
+		}else if($_REQUEST['msg']=="failure"){
+?>
+				<div class="alert alert-danger">
+					<strong><?php echo $msg = "Error in reseting your password please try again later!"; ?></strong>
+				</div>
+<?php
+	}else{
+			$msg = "";
+	}
+}
+?>
+<?php
 if(isset($_REQUEST['txtEmail']) && isset($_REQUEST['txtPassword'])){
 		$email = $_REQUEST['txtEmail'];
 		$password = $_REQUEST['txtPassword'];
@@ -85,6 +109,7 @@ if(isset($_REQUEST['txtEmail']) && isset($_REQUEST['txtPassword'])){
 					<strong>Oh snap! </strong> <?php echo $message; ?>.
 				</div>
 				<?php } ?>
+
 				<table border='0' align="center">
 					<tr>
 						<td>Email :</td><td> <input type="text" placeholder="xyz@example.com" name="txtEmail" class="form-control"> </td>
