@@ -4,6 +4,27 @@ include "sidenav.php";
 	if(!isset($_SESSION['user']) || count($_SESSION['user'])<=0){
 		redirect("../index.php");
 }
+
+$u_query = "select * from user";
+$u_result = mysql_query($u_query,$conn);
+while($u_row = mysql_fetch_array($u_result)) {
+	$total_users=mysql_num_rows($u_result);
+}
+$o_query = "select * from order_master";
+$o_result = mysql_query($o_query,$conn);
+while($o_row = mysql_fetch_array($o_result)) {
+	$total_orders=mysql_num_rows($o_result);
+}
+$c_query = "select * from category";
+$c_result = mysql_query($c_query,$conn);
+while($c_row = mysql_fetch_array($c_result)) {
+	$total_category=mysql_num_rows($c_result);
+}
+$p_query = "select * from product";
+$p_result = mysql_query($p_query,$conn);
+while($p_row = mysql_fetch_array($p_result)) {
+	$total_products=mysql_num_rows($p_result);
+}
 ?>
 
 		<div id="page-wrapper">
@@ -33,8 +54,8 @@ include "sidenav.php";
 										<i class="fa fa-fw fa-user fa-5x"></i>
 									</div>
 									<div class="col-xs-9 text-right">
-										<div class="huge">26</div>
-										<div>New Users!</div>
+										<div class="huge"><?php echo $total_users; ?></div>
+										<div>Total Users!</div>
 									</div>
 								</div>
 							</div>
@@ -56,8 +77,8 @@ include "sidenav.php";
 										<i class="fa fa-shopping-cart fa-5x"></i>
 									</div>
 									<div class="col-xs-9 text-right">
-										<div class="huge">124</div>
-										<div>New Orders!</div>
+										<div class="huge"><?php echo $total_orders; ?></div>
+										<div>Total Orders!</div>
 									</div>
 								</div>
 							</div>
@@ -78,7 +99,7 @@ include "sidenav.php";
 										<i class="fa fa-tasks fa-5x"></i>
 									</div>
 									<div class="col-xs-9 text-right">
-										<div class="huge">12</div>
+										<div class="huge"><?php echo $total_category; ?></div>
 										<div>View categores!</div>
 									</div>
 								</div>
@@ -100,7 +121,7 @@ include "sidenav.php";
 										<i class="fa fa-fw fa-table fa-5x"></i>
 									</div>
 									<div class="col-xs-9 text-right">
-										<div class="huge">13</div>
+										<div class="huge"><?php echo $total_products; ?></div>
 										<div>View Products!</div>
 									</div>
 								</div>
