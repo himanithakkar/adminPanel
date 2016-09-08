@@ -87,11 +87,12 @@ mysql_set_charset('utf8',$conn);
 
 						<?php
 							$cat_id=$row['category_id'];
-							$cat_query = "select name from category where category_id=$cat_id";
+							$cat_query = "select name,parent_id from category where category_id=$cat_id";
 							$cat_result = mysql_query($cat_query,$conn);
-							$cat_row = mysql_fetch_array($cat_result)
+							$cat_row = mysql_fetch_array($cat_result);
+							$parent_cat_name=getCategoryName($cat_row['parent_id'],$conn);
 						?>
-								<td nowrap><?php echo $cat_row['name'] ?></td>
+								<td nowrap><?php if($cat_row['parent_id']!=0){echo $parent_cat_name."/".$cat_row['name'];}else{ echo $cat_row['name']; } ?></td>
 
 
 								<td nowrap><?php echo $row['price']; ?><i class="fa fa-rupee"></i></td>
