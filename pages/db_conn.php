@@ -1,11 +1,16 @@
 <?php
-
+ 
 	$conn = mysql_connect('localhost', 'root', '');
 	if (!$conn) {
 		die('Could not connect: ' . mysql_error());
 	}
 	mysql_select_db("vraj_db");
-
+function getCategoryName($parent_id,$conn){
+		$query = "select name from category where category_id='$parent_id'";
+		$result = mysql_query($query,$conn);
+		$row = mysql_fetch_array($result);
+		return $row['name'];
+	}
 function getUserName($user_id,$conn){
 		$query = "select user_name from user where user_id='$user_id'";
 		$result = mysql_query($query,$conn);

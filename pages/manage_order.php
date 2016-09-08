@@ -145,7 +145,7 @@ if(isset($_REQUEST['message']))
 										<th wrap>Shipping address </th>
 										<!--<th>Shipping date</th>-->
 										<th nowrap>View Details</th>
-										<th nowrap><i class="fa fa-envelope fa-lg"></i></th>
+										<th nowrap>Email</th>
 									</tr>
 								</thead>
 								<tbody>

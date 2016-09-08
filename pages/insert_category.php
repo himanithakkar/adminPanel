@@ -2,7 +2,7 @@
 <?php
 ob_start();
 	include "db_conn.php";
-	$id= $_REQUEST["txtid"];
+	
 	$name = $_REQUEST["txtName"];
 
 	$parent_category=$_REQUEST["parent_category"];
@@ -16,10 +16,10 @@ ob_start();
 		$status = 0;
 	}
 	
-	$query = "insert into category(name,status,parent_id) values('$name',$status,$parent_category)";
+	 $query = "insert into category(name,status,parent_id) values('$name',$status,$parent_category)";
 	
 	
-	$result = mysql_query($query,$conn);
+	$result = mysql_query($query,$conn) or die(mysql_error());
 	
 	if($result)
 		header("Location:add_category.php?id=$id&msg=success");

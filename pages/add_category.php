@@ -76,8 +76,7 @@ if(!isset($_SESSION['user']) || count($_SESSION['user'])<=0){
 													$cat_result = mysql_query($query,$conn);
 													while($row = mysql_fetch_array($cat_result)){
 												?>
-
-												<option value=" <?php echo $row['category_id']; ?>"> <?php echo $row['name']; ?> 
+												<option value=" <?php echo $row['category_id']; ?>" > <?php echo $row['name']; ?> 
 												</option>
 											<?php
 												}

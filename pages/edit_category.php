@@ -87,23 +87,22 @@ if(isset($_REQUEST['id'])){
 									</td>
 									<td> <br />
 										<select name="parent_category" class="form-control">
-											<option value="0"> 
-											</option>
+											
 											<?php
 												$query = "select category_id,name from category";
 												$cat_result = mysql_query($query,$conn);
 												while($cat_row = mysql_fetch_array($cat_result)){
-													if($cat_row['id'] == $row['category_id'])
+													if($cat_row['category_id'] == $row['parent_id'])
 														$selected = "selected";
 													else
 														$selected = "";
+											
 											?>
-
-											<option value="<?php echo $cat_row['id']; ?>" <?php echo $selected; ?>>  <?php echo $cat_row['name']; ?> 
+											<option value="<?php echo $cat_row['category_id']; ?>" <?php echo $selected; ?> >  <?php echo $cat_row['name']; ?> 
 											</option>
 											<?php
 												}
-											?>		
+																						?>		
 										</select>
 									</td>
 								</tr>

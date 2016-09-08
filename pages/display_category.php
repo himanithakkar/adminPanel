@@ -4,7 +4,7 @@ include "sidenav.php";
 if(!isset($_SESSION['user']) || count($_SESSION['user'])<=0){
 		redirect("../index.php");
 }
-$query = "select category_id,name,status from category";
+$query = "select category_id,name,status,parent_id from category";
 mysql_set_charset('utf8',$conn);
 	$result = mysql_query($query,$conn);
 	//echo "<pre>";
@@ -64,27 +64,34 @@ mysql_set_charset('utf8',$conn);
 							<th>Id</th>
 							<th>Name</th>
 							<th>Status</th>
+							<th>Parent category</th>
 							<th><i class="fa fa-fw fa-edit"></i> Edit</th>
 							<th><i class="fa fa-trash-o"></i> Delete</th>
 						</tr>
 						<?php
 						while($row = mysql_fetch_array($result)){
-							if($row['status']==1){
-								$status='<font color="limegreen"><b> ACTIVE</font></b>';
-							}
-							else{
-								$status='<font color="crimson"><b>INACTIVE</font></b>';
-							}
+							if($row['category_id']!=0){
+								if($row['status']==1){
+									$status='<font color="limegreen"><b> ACTIVE</font></b>';
+								}
+								else{
+									$status='<font color="crimson"><b>INACTIVE</font></b>';
+								}
 						?>
 						<tr>
 
 							<td><?php echo $row['category_id']; ?></td>
 							<td><?php echo strtoupper($row['name']); ?></td>
 							<td><?php echo $status; ?></td>
+							<td>
+								<?php $parent_id=$row['parent_id']; 
+								echo getCategoryName($parent_id,$conn); ?>	
+							</td>
 							<td><a href="edit_category.php?id=<?php echo $row['category_id']; ?>"><i class="fa fa-fw fa-edit"></i> Edit</a></td>
 							<td><a onClick="javascript: return confirm('Are you sure you want to delete the category?');" href="delete_category.php?id=<?php echo $row['category_id']; ?>"><i class="fa fa-trash-o"></i> Delete</a></td>
 						</tr>
 						<?php
+							}
 						}
 						?>
 					</table>

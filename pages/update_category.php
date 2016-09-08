@@ -13,7 +13,7 @@ ob_start();
 		$status = 0;
 	}
 	
-	$query = "update category set name='$name',status=$status, parent_id=$parent_category where category_id=$id";
+	$query = "update category set name='$name',status=$status, parent_id='$parent_category' where category_id=$id";
 	
 	$result = mysql_query($query,$conn);
 	
