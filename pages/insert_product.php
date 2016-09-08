@@ -12,8 +12,8 @@ ob_start();
 	}else{
 		$status = 0;
 	}
-	$new_filename = productImageUpload($_FILES['product_image'],"../images");
-	$new_filename='http://klickpicgo.com/images'.$new_filename;
+	$new_filename = productImageUpload($_FILES['product_image'],"../images/");
+	$new_filename='http://klickpicgo.com/admin_panel/images/'.$new_filename;
 	$query = "insert into product(product_name,category_id,product_desc,price,product_image,product_status) values('$pname',$cat_id,'$desc',$price,'$new_filename','$status')";
 		$result = mysql_query($query,$conn);
 		

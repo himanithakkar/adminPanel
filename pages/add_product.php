@@ -52,7 +52,7 @@ if(!isset($_SESSION['user']) || count($_SESSION['user'])<=0){
 				<div class="col-lg-1"> </div> 
 					<div class="col-lg-6">            
 						<div class="table-responsive"><!--table  div class-->
-							<form role="form" action="insert_product.php" method="post" >
+							<form role="form" action="insert_product.php" method="post" enctype="multipart/form-data" >
 								<table><!--table class-->
 								<tr>
 									<td><br /> Product Name :</td> 
@@ -112,7 +112,7 @@ if(!isset($_SESSION['user']) || count($_SESSION['user'])<=0){
 											Upload Image :
 										</td>
 										<td> <br /><br />
-											<input type="file" name="product_image">
+											<input type="file" name="product_image" id="product_image">
 										</td>
 								</tr>
 								<tr>

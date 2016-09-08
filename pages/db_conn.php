@@ -1,11 +1,4 @@
 <?php
- /*
- $conn = mysqli_connect(HOST,USER,PASS,DB);
- if(!$conn) {
-   die('Unable to Connect'.mysql_error());
-}
-*/
-
 
 	$conn = mysql_connect('localhost', 'root', '');
 	if (!$conn) {
@@ -64,7 +57,7 @@ function getUserName($user_id,$conn){
 		$height_orig= $array[1];
 		
 		$width=250;
-		$height=250;
+		
 		
 		$image_p = imagecreatetruecolor($width, $height);
 		$image = imagecreatefromjpeg($filename);

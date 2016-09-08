@@ -145,7 +145,7 @@ if(isset($_REQUEST['message']))
 										<th wrap>Shipping address </th>
 										<!--<th>Shipping date</th>-->
 										<th nowrap>View Details</th>
-										<th><i class="fa fa-envelope-o fa-lg"></i></th>
+										<th nowrap><i class="fa fa-envelope fa-lg"></i></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -234,7 +234,7 @@ if(isset($_REQUEST['message']))
 											$email;
 										?>
 										<a href="email_order_details.php?oid=<?php echo $oid?>&email=<?php echo
-										$email?>"><i class="fa fa-envelope-o fa-lg"></i>
+										$email?>"><i class="fa fa-envelope fa-lg"></i>
 										</a>
 									</td>
 								</tr>

@@ -12,7 +12,8 @@ ob_start();
 		$status = 0;
 	}
 	if($_FILES['product_image']['tmp_name']!="" && $_FILES['product_image']['size']>0){
-		$new_filename = productImageUpload($_FILES['product_image'],"..images");
+		$new_filename = productImageUpload($_FILES['product_image'],"../images/");
+		$new_filename='http://klickpicgo.com/admin_panel/images/'.$new_filename;
 		$query = "update product set product_name='$name', product_image='$new_filename', price='$price', product_desc='$desc',product_status='$status' where product_id=$id";
 	}else{
 		$query = "update product set product_name='$name', price='$price', product_desc='$desc',product_status='$status' where product_id=$id";

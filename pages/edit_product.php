@@ -70,7 +70,7 @@ if(!isset($_SESSION['user']) || count($_SESSION['user'])<=0){
 					<div class="col-lg-6"> 
 					           
 						<div class="table-responsive"> <!--table  div class-->
-							<form role="form" action="update_product.php" method="post" >
+							<form role="form" action="update_product.php" method="post" enctype="multipart/form-data" >
 								<input type="hidden" name="pid" value="<?php echo $id; ?>" />
 								<div class="form-group">
 		
